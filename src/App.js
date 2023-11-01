@@ -21,7 +21,7 @@ function App() {
         <Fitness />
         <Gaming />
       </RouteCompo>
-      <Footer />
+      
       {/*<Store>
   </Store>*/}
     </div>

@@ -8,7 +8,7 @@ import "./article.css";
 import { useNavigate } from "react-router-dom";
 import Logo from "../Components/Logo/Logo";
 import { useSelector } from "react-redux";
-
+import Footer from "../Components/Footer";
 const Article = () => {
   const [data, setData] = useState([]);
   //const [userdata, setUserData] = useState("");
@@ -194,7 +194,7 @@ const Article = () => {
             <h2>Loadinggg</h2>
           )}
         </div>
-      </div>{" "}
+      </div>{" "}<Footer />
     </>
   );
 };

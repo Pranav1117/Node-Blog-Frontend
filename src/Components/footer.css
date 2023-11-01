@@ -7,7 +7,7 @@
     color: aliceblue;
     position: end;
     margin-top: 1rem;
-    
+    flex-shrink: 0;
 }
 .footer-boxes-heading{
     font-size: 30px;
