@@ -37,15 +37,19 @@ const RegisterPage = () => {
     storedData.push(tempObj);
 
     await axios
-      .post("https://node-project-backend.onrender.com/register", tempObj)
+      .post(
+        "https://node-project-backend.onrender.com/register",
+        // "http://localhost:8000/register",
+        tempObj
+      )
       .then((res) => {
-       const status = res.data;
+        const status = res.data;
         console.log(status);
         //<Home status={res.data} />;
         setResponseData(status);
         console.log(responseData);
         setIsIgnedUp(true);
-          localStorage.setItem("token",status.token)
+        localStorage.setItem("token", status.token);
         nav("/user/status", { state: status });
       })
       .catch((err) => {

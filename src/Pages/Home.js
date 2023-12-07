@@ -13,6 +13,7 @@ import { setLoggedInStatus } from "../Features/Slice";
 import Footer from "../Components/Footer";
 function Home() {
   const [value] = useState("value");
+
   const status = useSelector((state) => state.slice.loggedIn);
 
   const [data, setData] = useState(null);
@@ -20,17 +21,18 @@ function Home() {
   const fetchData = async () => {
     try {
       let res = await axios.get(
-        "https://node-project-backend.onrender.com/data"
-        // "https://node-project-backend.onrender.com/data"
+        "https://node-project-backend.onrender.com/data",
+        // "http://localhost:8000/data"
       );
 
       const response = res.data;
       setData(response);
-      console.log(response);
+      // console.log(response);
     } catch (err) {
       console.log(err, "errs");
     }
   };
+
   const dispatch = useDispatch();
 
   const checkLoggedIn = async () => {
@@ -39,7 +41,7 @@ function Home() {
 
     let res = await axios.get(
       "https://node-project-backend.onrender.com/checkloggedin"
-      // "https://node-project-backend.onrender.com/checkloggedin",
+      // "http://localhost:8000/checkloggedin"
     );
     console.log(res.data, "checkinngg");
     dispatch(setLoggedInStatus(res.data.isLoggedIn));
@@ -48,15 +50,15 @@ function Home() {
   useEffect(() => {
     fetchData();
     checkLoggedIn();
-    console.log(status);
-    console.log(data, "data");
   }, []);
 
-  console.log(data);
+  console.log(status);
+
   return (
     <>
       <HeaderCompo />
       <div className="img-text-onhover">Click to Read more</div>
+
       {data ? (
         <>
           <div className="homepage-main-big-image-container">
@@ -99,25 +101,25 @@ function Home() {
                 ) : (
                   <h2>Loading</h2>
                 )}
-                <div className="homepage-small-images">
-                  {data ? (
-                    data
-                      .filter((item) => item.name === "Artificial Inteligence")
-                      .map((i, index) => {
-                        return (
-                          <>
-                            <img
-                              alt="logo"
-                              src={i.image}
-                              className="homepage-small-images2"
-                            />
-                          </>
-                        );
-                      })
-                  ) : (
-                    <h2>loading</h2>
-                  )}
-                </div>
+              </div>
+              <div className="homepage-small-images">
+                {data ? (
+                  data
+                    .filter((item) => item.name === "Artificial Inteligence")
+                    .map((i, index) => {
+                      return (
+                        <>
+                          <img
+                            alt="logo"
+                            src={i.image}
+                            className="homepage-small-images2"
+                          />
+                        </>
+                      );
+                    })
+                ) : (
+                  <h2>loading</h2>
+                )}
               </div>
             </div>
           </div>
@@ -303,7 +305,7 @@ function Home() {
           <Footer />
         </>
       ) : (
-        <div class="loader">Loading...</div>
+        <div className="loader">Loading...</div>
       )}
     </>
   );

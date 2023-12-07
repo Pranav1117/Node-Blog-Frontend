@@ -16,13 +16,13 @@ const LoginPage = () => {
   const nav = useNavigate();
 
   const [resStatus, setResStatus] = useState("");
- 
 
   const [userLoginData, setUserLoginData] = useState({
     name: "",
     email: "",
     password: "",
   });
+
   const handleOnChange = (e) => {
     setUserLoginData({ ...userLoginData, [e.target.name]: e.target.value });
   };
@@ -38,7 +38,11 @@ const LoginPage = () => {
     storedData.push(tempObj);
 
     await axios
-      .post("https://node-project-backend.onrender.com/login", tempObj)
+      .post(
+        "https://node-project-backend.onrender.com/login",
+        // "http://localhost:8000/login",
+        tempObj
+      )
       .then((res) => {
         const status = res.data;
         console.log(status);
@@ -46,6 +50,7 @@ const LoginPage = () => {
 
         localStorage.setItem("token", status.token);
         dispatch(setLoggedInStatus(status.isLoggedIn));
+
         if (status.msg === "Login succesfull") {
           dispatch(setLoggedInStatus(true));
 
@@ -95,7 +100,7 @@ const LoginPage = () => {
         <button type="submit" className="submit-btn" onClick={handleSubmit}>
           Login
         </button>
-        <div className="resStatus">{resStatus}</div>
+        <div className="resStatus">{resStatus.msg}</div>
       </form>
     </div>
   );

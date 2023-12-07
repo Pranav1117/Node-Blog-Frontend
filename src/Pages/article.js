@@ -2,17 +2,21 @@ import React from "react";
 import axios from "axios";
 //import { data } from "../Utilities/ContextApi/ContextData";
 import { useState, useEffect } from "react";
+import { setLoggedInStatus } from "../Features/Slice";
+
 import { useLocation, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./article.css";
 import { useNavigate } from "react-router-dom";
 import Logo from "../Components/Logo/Logo";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Footer from "../Components/Footer";
+
 const Article = () => {
   const [data, setData] = useState([]);
   //const [userdata, setUserData] = useState("");
   const [value] = useState("value");
+  const dispatch = useDispatch();
 
   const nav = useNavigate();
   const fetchData = async () => {
@@ -30,8 +34,21 @@ const Article = () => {
     }
   };
 
+  const checkLoggedIn = async () => {
+    const token = localStorage.getItem("token");
+    axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+
+    let res = await axios.get(
+      "https://node-project-backend.onrender.com/checkloggedin"
+      // "http://localhost:8000/checkloggedin"
+    );
+    console.log(res.data, "checkinngg");
+    dispatch(setLoggedInStatus(res.data.isLoggedIn));
+  };
+
   useEffect(() => {
     fetchData();
+    checkLoggedIn();
     // eslint-disable-next-line
   }, [value]);
 
@@ -40,6 +57,7 @@ const Article = () => {
 
   const location = useLocation();
   const status = useSelector((state) => state.slice.loggedIn);
+  console.log(status, "in article");
   //const [detail] = useContext(data);
   var categor;
 
@@ -194,7 +212,8 @@ const Article = () => {
             <h2>Loadinggg</h2>
           )}
         </div>
-      </div>{" "}<Footer />
+      </div>{" "}
+      <Footer />
     </>
   );
 };

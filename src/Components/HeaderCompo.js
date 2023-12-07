@@ -28,6 +28,7 @@ const HeaderCompo = (props) => {
 
     const resp = await axios(
       "https://node-project-backend.onrender.com/logout"
+      // "http://localhost:8000/logout"
     );
 
     console.log(resp);
