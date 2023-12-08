@@ -12,7 +12,6 @@ import Footer from "../Components/Footer";
 function Bollywood() {
   const location = useLocation();
   const status = useSelector((state) => state.slice.loggedIn);
-  console.log(status);
 
   const [data, setData] = useState(null);
 
@@ -25,7 +24,6 @@ function Bollywood() {
       );
       const response = res.data;
       setData(response);
-      console.log(data, "data");
     } catch (err) {
       console.log(err, "errs");
     }
@@ -49,7 +47,6 @@ function Bollywood() {
                 data
                   .filter((item) => item.category === "Bollywood")
                   .map((i, index) => {
-                    //console.log(i, index);
                     return (
                       <div key={index} className="left-section-info-container">
                         <div className="left-section-avatar">

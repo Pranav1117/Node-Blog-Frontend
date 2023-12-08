@@ -44,10 +44,10 @@ const RegisterPage = () => {
       )
       .then((res) => {
         const status = res.data;
-        console.log(status);
+        
         //<Home status={res.data} />;
         setResponseData(status);
-        console.log(responseData);
+        
         setIsIgnedUp(true);
         localStorage.setItem("token", status.token);
         nav("/user/status", { state: status });
@@ -63,12 +63,7 @@ const RegisterPage = () => {
     });
   };
 
-  // useEffect(() => {
-  //   if (responseData !== "undefined") {
-  //     console.log(responseData, "in use effect");
-  //     localStorage.setItem("token", responseData.token);
-  //   }
-  // }, [responseData]);
+  
 
   return (
     <div className="container">

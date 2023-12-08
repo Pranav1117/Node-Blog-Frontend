@@ -43,7 +43,7 @@ function Home() {
       "https://node-project-backend.onrender.com/checkloggedin"
       // "http://localhost:8000/checkloggedin"
     );
-    console.log(res.data, "checkinngg");
+   
     dispatch(setLoggedInStatus(res.data.isLoggedIn));
   };
 
@@ -52,7 +52,7 @@ function Home() {
     checkLoggedIn();
   }, []);
 
-  console.log(status);
+  
 
   return (
     <>

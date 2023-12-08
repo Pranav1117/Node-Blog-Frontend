@@ -10,17 +10,16 @@ import { useSelector } from "react-redux";
 import { setLoggedInStatus } from "../Features/Slice";
 import axios from "axios";
 import { useDispatch } from "react-redux";
+import userIcon from "../Media/user (1).png";
 
 const HeaderCompo = (props) => {
   const status = useSelector((state) => state.slice.loggedIn);
-  //console.log(status);
   const dispatch = useDispatch();
 
   const [show, setShow] = useState(true);
   const [showUser, setShowUser] = useState(true);
 
-  /*const [isLoggedIn, setIsLoggedIn] = useState(false);
-   */
+  const [showUserIcon, setShowUserIcon] = useState(false);
 
   const handleLogOut = async () => {
     const token = localStorage.getItem("token");
@@ -31,16 +30,14 @@ const HeaderCompo = (props) => {
       // "http://localhost:8000/logout"
     );
 
-    console.log(resp);
+    // console.log(resp);
     localStorage.setItem("token", null);
     dispatch(setLoggedInStatus(resp.data.isLoggedIn));
   };
 
-  useEffect(() => {
-    //status ? setIsLoggedIn(true) : setIsLoggedIn(false);
-    //console.log(status);
-    console.log(status, "sateee");
-  }, []);
+  const handleShowIcon = () => {
+    setShowUserIcon(!showUserIcon);
+  };
 
   const handleClick = () => {
     setShow(!show);
@@ -71,21 +68,34 @@ const HeaderCompo = (props) => {
 
       {/*{showUser?*/}
       <div>
-        {status ? (
-          <div className="login-signup-container">
-            <Link to="#" className="register-btn logout" onClick={handleLogOut}>
-              LogOut
-            </Link>
-          </div>
+        <div className="user-icon-wrapper">
+          <img src={userIcon} alt="User" onClick={handleShowIcon} />
+        </div>
+        {showUserIcon ? (
+          <>
+            {status ? (
+              <div className="login-signup-container">
+                <Link
+                  to="#"
+                  className="register-btn logout"
+                  onClick={handleLogOut}
+                >
+                  LogOut
+                </Link>
+              </div>
+            ) : (
+              <div className="login-signup-container">
+                <Link className="login-btn" to={"/user/login"}>
+                  Login
+                </Link>
+                <Link className="register-btn" to="/user/register">
+                  Register
+                </Link>
+              </div>
+            )}
+          </>
         ) : (
-          <div className="login-signup-container">
-            <Link className="login-btn" to={"/user/login"}>
-              Login
-            </Link>
-            <Link className="register-btn" to="/user/register">
-              Register
-            </Link>
-          </div>
+          ""
         )}
       </div>
       {/*''*/}

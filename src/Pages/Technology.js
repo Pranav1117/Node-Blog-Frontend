@@ -23,7 +23,7 @@ function Technology() {
       );
       const response = res.data;
       setData(response);
-      console.log(data, "data");
+    
     } catch (err) {
       console.log(err, "errs");
     }

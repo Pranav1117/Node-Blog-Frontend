@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import Logo from "../Components/Logo/Logo";
 import { useSelector, useDispatch } from "react-redux";
 import Footer from "../Components/Footer";
+import HeaderCompo from "../Components/HeaderCompo";
 
 const Article = () => {
   const [data, setData] = useState([]);
@@ -26,9 +27,9 @@ const Article = () => {
       );
       // console.log(res);
       const response = res.data;
-      console.log("res", response);
+      // console.log("res", response);
       setData(response);
-      console.log(data, "data");
+      // console.log(data, "data");
     } catch (err) {
       console.log(err, "errs");
     }
@@ -42,7 +43,7 @@ const Article = () => {
       "https://node-project-backend.onrender.com/checkloggedin"
       // "http://localhost:8000/checkloggedin"
     );
-    console.log(res.data, "checkinngg");
+    // console.log(res.data, "checkinngg");
     dispatch(setLoggedInStatus(res.data.isLoggedIn));
   };
 
@@ -57,7 +58,7 @@ const Article = () => {
 
   const location = useLocation();
   const status = useSelector((state) => state.slice.loggedIn);
-  console.log(status, "in article");
+  // console.log(status, "in article");
   //const [detail] = useContext(data);
   var categor;
 
@@ -75,7 +76,8 @@ const Article = () => {
   return (
     <>
       <div>
-        <Logo className="article-logo" />
+        {/* <Logo className="article-logo" /> */}
+        <HeaderCompo/>
         {status ? (
           <div>
             {data ? (
@@ -86,14 +88,27 @@ const Article = () => {
                     <>
                       <div className="article-above-container" key={index}>
                         <h2 className="article-heading">{i.name}</h2>
+
                         <div className="articlers-info-container">
-                          <img src={i.avatar} className="avatar" alt="logo" />
-                          <div className="articlers-info">
-                            <div className="articlers-name">{i.articleby}</div>
-                            <div className="articlers-postdate">
-                              {i.postdate}
+                          <div className="name-logo-wrapper">
+                            <div className="logo-wapper">
+                              <img
+                                src={i.avatar}
+                                className="avatar"
+                                alt="logo"
+                              />
+                            </div>
+
+                            <div className="articlers-info">
+                              <div className="articlers-name">
+                                {i.articleby}
+                              </div>
+                              <div className="articlers-postdate">
+                                {i.postdate}
+                              </div>
                             </div>
                           </div>
+
                           <div className="socials-icons-container">
                             <img
                               className="fb-icon"
@@ -137,6 +152,7 @@ const Article = () => {
                             />
                           </div>
                         </div>
+
                         <img
                           alt="logo"
                           className="article-main-image"
@@ -193,16 +209,21 @@ const Article = () => {
                           className="article-bottom-name"
                           to={`/article/${i.id}`}
                         >
-                          <img
-                            alt="logo"
-                            className="article-bottom-images"
-                            src={i.image}
-                          />
-                          <h4 className=" article-bottom">{i.name}</h4>
+                          <div className="lower-imgs">
+                            <img
+                              alt="logo"
+                              className="article-bottom-images"
+                              src={i.image}
+                            />
+                          </div>
+
+                          <div className="lower-info">
+                            <h4 className=" article-bottom">{i.name}</h4>
+                            <h5 className="article-bottom-date article-bottom">
+                              {i.release}
+                            </h5>
+                          </div>
                         </Link>
-                        <h5 className="article-bottom-date article-bottom">
-                          {i.release}
-                        </h5>
                       </div>
                     </div>
                   </>

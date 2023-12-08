@@ -32,7 +32,7 @@ img{
 
 }
 img:hover{
- transform: scale(1.1);
+ /* transform: scale(1.1); */
  box-shadow: 0px 0px 8px 2px gray;
 }
 .img-text-onhover{
@@ -63,15 +63,18 @@ img:hover .img-text-onhover{
     background-color: rgb(239, 224, 206);
     backdrop-filter:blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    box-shadow: 0 3px 32px 0 ;
+    /* box-shadow: 0 3px 32px 0 ; */
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 .article-heading{
     font-size: 50px;
-color: rgb(122, 38, 38);
-text-align: center;
+    color: rgb(122, 38, 38);
+    text-align: center;
 }
+
 .articlers-info-container{
+    width: 80%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -79,16 +82,26 @@ text-align: center;
     margin: 20px;
     background-color: rgb(245, 239, 232);
     padding: 2%;
+    margin-inline: auto;
     border-radius: 20px;
-    
 }
+
+.name-logo-wrapper{
+    display:flex;
+    width: 65%;
+    gap: 2rem;
+    align-items: center;
+}
+
 .articlers-info{
     text-align:start ;
 }
+
 .articlers-name{
     font-size: 18px;
     color: black;
 }
+
 .articlers-postdate{
     font-size: 14px;
     color: gray;
@@ -128,8 +141,8 @@ text-align: center;
 }
 .socials-icons-container{
     display: flex;
-    width: 20%;
-    justify-content: space-around;
+    width: 30%;
+    justify-content: space-between;
 }
 .article-main-image{
     display: flex;
@@ -137,21 +150,28 @@ text-align: center;
     align-self: center;
     width: 80%;
     height: 370px;
+    object-fit: cover;
 }
+
 .article-main-image:hover{
     transform: none;
     box-shadow: none;
 }
 
 .article-main-para{
-    font-size:20px;
+    font-size: 20px;
     color: rgba(140, 24, 24, 0.568);
+    width: 80%;
+    margin-inline: auto;
 }
 .genre-likes-container{
     display: flex;
     flex-direction: column;
-    width: 18%;
+    width: 80%;
+    align-items: self-start;
+    margin-inline: auto;
 }
+
 .claps-txt{
     margin-left:20px;
     align-content: center;
@@ -172,7 +192,9 @@ text-align: center;
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 20px;
+    gap: 1rem;
 }
+
 .genre1{
     background-color: #00000029;
     padding: 4px;
@@ -197,24 +219,52 @@ text-align: center;
 }
 .article-lower-conatiner{
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    /* flex-wrap: wrap; */
+    justify-content: space-between;
     margin: 10px;
     padding: 40px;
     text-align: center;
+    justify-content: space-between;
+    width: 80%;
+    margin-inline:auto;
 }
+
+.lower-imgs{
+    height: 40%;
+}
+
+.lower-info{
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.article-lower-conatiner div{
+    flex: 1;
+}
+
 .article-bottom-images{
-width: 250px;
-height: 200px;
-border-radius: 10px;
+    /* width: 250px; */
+    height: 200px;
+    /* border-radius: 10px; */
 }
+
 .article-bottom-name{
     text-decoration: none;
     font-size: 25px;
     color: brown;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
+
 .article-bottom-date{
     font-size: 17px;
+}
+
+.article-bottom{
+    font-size: clamp(0.8rem,2vw,3rem);
 }
 
 
@@ -225,20 +275,22 @@ border-radius: 10px;
         align-items: center;
         justify-content: center;
         width: 90%;
-    padding: 0px;
-    margin-inline: auto;
-    backdrop-filter: none;
+        padding: 0px;
+        margin-inline: auto;
+        backdrop-filter: none;
     }
-  .article-main-image{
+
+  /* .article-main-image{
     width: 80%;
     height: 50%;
-  }
+  } */
 
   .articlers-info-container{
     width: 80%;
     position: relative;
     top: 10px;
-    background-color: rgb(244, 227, 206);
+    flex-direction: column;
+    /* background-color: rgb(244, 227, 206); */
   }
 
     .article-heading{
@@ -247,8 +299,8 @@ border-radius: 10px;
    
     .article-main-para{
         font-size:18px;
-        width: 300px;
-        height: 369px;
+        /* width: 300px; */
+        /* height: 369px; */
     }
 
     
@@ -259,25 +311,7 @@ border-radius: 10px;
     .articlers-name{
         font-size: 16px;
     }
-    .avatar{
-        position: relative;
-        top: 30px;
-        left: 15px;
-        width: 75px;
-        height: 75px;
-    }
-    .articlers-info{
-        position: relative;
-        top: 30px;
-        left: 35px;
-    }
-    .socials-icons-container{
-        position: relative;
-        bottom: 30px;
-        right: 200px;
-        
 
-    }
     .twitter-icon{
         margin-left: 12px;
         margin-right: 10px;
@@ -293,12 +327,7 @@ border-radius: 10px;
 }
 
 .genre-likes-container{
-position: relative;
-top: 10px;
-right: 90px;
-width: 30%;
-margin-bottom: 55px;
-margin-top: 30px;
+    margin-bottom: 55px;
 }
 
 .genre1{
@@ -350,12 +379,13 @@ margin-top: 30px;
         display: flex;
         flex-direction: column;
         margin-bottom: 20px;
-        justify-content: space-evenly;
+        /* justify-content: space-evenly; */
         padding: 0;
         width: 100%;
     }
     .article-bottom-images{
-        width: 90%;
+        width: 100%;
+        object-fit: contain;
         /* height: 70%; */
     }
     .article-bottom-date{
@@ -371,7 +401,7 @@ margin-top: 30px;
 }
 
 
-@media only screen  and (min-width:768px) and (max-width:1024px){
+@media only screen  and (min-width:768px) and (max-width:1080px){
     .article-above-container{
         display: flex;
         flex-direction: column;
@@ -382,28 +412,20 @@ margin-top: 30px;
         margin-inline: auto;
         backdrop-filter: none;
     }
-  .article-main-image{
-    width: 80%;
-    height: 50%;
-  }
+ 
 
   .articlers-info-container{
     width: 80%;
     position: relative;
     top: 10px;
-    background-color: rgb(244, 227, 206);
+    /* background-color: rgb(244, 227, 206); */
   }
 
     .article-heading{
-        font-size:21px
+        font-size:32px
     }
    
-    .article-main-para{
-        font-size:18px;
-        width: 300px;
-        height: 369px;
-    }
-
+   
     
     .avatar{
         width:75px ;
@@ -412,25 +434,8 @@ margin-top: 30px;
     .articlers-name{
         font-size: 16px;
     }
-    .avatar{
-        position: relative;
-        top: 30px;
-        left: 15px;
-        width: 75px;
-        height: 75px;
-    }
-    .articlers-info{
-        position: relative;
-        top: 30px;
-        left: 35px;
-    }
-    .socials-icons-container{
-        position: relative;
-        bottom: 30px;
-        right: 200px;
-        
-
-    }
+   
+  
     .twitter-icon{
         margin-left: 12px;
         margin-right: 10px;
@@ -446,12 +451,12 @@ margin-top: 30px;
 }
 
 .genre-likes-container{
-position: relative;
-top: 10px;
-right: 90px;
-width: 30%;
-margin-bottom: 55px;
-margin-top: 30px;
+    /* position: relative; */
+    /* top: 10px; */
+    right: 90px;
+    width: 80%;
+    margin-bottom: 55px;
+    /* margin-top: 30px; */
 }
 
 .genre1{
@@ -479,12 +484,10 @@ margin-top: 30px;
 
 }
     .more{
-        font-size:22px;
+        font-size:40px;
     }
 
-    .upper{
-        width: 90%;
-    }
+  
     .article-lower-conatiner{
         display: flex;
         flex-wrap: nowrap;
@@ -494,6 +497,7 @@ margin-top: 30px;
         padding: 0;
         text-align: center;
         width: 90%;
+        margin-inline: auto;
         flex-direction: row;
         /* align-items: stretch; */
         /* align-content: center; */
@@ -507,18 +511,13 @@ margin-top: 30px;
         padding: 0;
         width: 100%;
     }
-    .article-bottom-images{
-        width: 90%;
-        /* height: 70%; */
-    }
+   
     .article-bottom-date{
         margin: 10px;
     }
     h5{
-        width: 100px;
+        /* width: 100px; */
         margin-left: 200px;
     }
-    .article-bottom-name{
-        width: 100px;
-    }
+   
 }

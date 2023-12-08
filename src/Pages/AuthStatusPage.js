@@ -7,11 +7,9 @@ const AuthStatusPage = () => {
 
   const status = location.state.msg;
 
-  console.log(status);
 
   const a = localStorage.getItem("token");
 
-  // console.log(a);
 
   return (
     <div className="AuthBody">

@@ -45,7 +45,7 @@ const LoginPage = () => {
       )
       .then((res) => {
         const status = res.data;
-        console.log(status);
+        
         setResStatus(status);
 
         localStorage.setItem("token", status.token);

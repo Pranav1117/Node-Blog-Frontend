@@ -57,9 +57,10 @@ nav .menu span{
     border-radius: 0.2rem;
     display: none;
 }
-@media only screen and (min-width:250px) and (max-width:1024px){
+@media only screen and (min-width:250px) and (max-width:1080px){
     nav .menu{
         display: flex;
+        margin-top: 1rem;
     }
     nav .menu span {
         display: flex;

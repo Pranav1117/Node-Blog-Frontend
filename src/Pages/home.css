@@ -19,7 +19,7 @@
 }
 .sub-div{
     width: 30%;
-    height: 570px;
+    /* height: 570px; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -75,6 +75,7 @@ hr{
 .homepage-small-images img{
     width: 100%;
     height: 270px;
+    
 
 }
 .homepage-bollystories-container{
@@ -84,8 +85,23 @@ hr{
     text-align: center;
     justify-content: space-evenly;
     margin: 25px;
-    margin-bottom: 80px;
+    /* margin-bottom: 80px; */
 }
+
+.homepage-bollystories-container div{
+    flex: 1;
+    display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+}
+
+.homepage-advertise-container div img{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: fit;
+}
+
 .home-page-bolly-images{
     width: 200px;
 }
@@ -186,6 +202,7 @@ margin-top: 10px;
     margin-top: 20px;
     position: relative;
     top: 10px;
+    object-fit: contain;
 
 }
 .homepage-news-container{
@@ -261,7 +278,7 @@ img{
 
 }
 img:hover{
- transform: scale(1.1);
+ /* transform: scale(1.1); */
  box-shadow: 0px 0px 8px 2px gray;
 }
 .img-text-onhover{
@@ -273,7 +290,7 @@ img:hover .img-text-onhover{
 
 
 
-@media only screen and (min-width:250px) and (max-width:1024px){
+@media only screen and (min-width:250px) and (max-width:1080px){
    
     .App{
         height: 100%
@@ -305,9 +322,10 @@ img:hover .img-text-onhover{
 
     .sub-div img{
         width: 90%;
+        object-fit: cover;
     }
     .holly-post-wrapper{
-        width: 90%;
+        width: 100%;
     }
 .homepage-main-images{
     align-items: center;
@@ -348,7 +366,7 @@ img:hover .img-text-onhover{
 }
 
 .homepage-hollystories-container{
-    width: 90%;
+    width: 100%;
     margin-inline:auto ;
 }
 .homepage-small-images2{
@@ -396,13 +414,14 @@ hr{
     width:90%;
 }
 .home-page-bolly-images{
-    width: 40%;
+    /* width: 40%; */
+    object-fit: contain;
     height: 20rem;
 }
 
-.home-hollywood-stories-img img{
-    width: 100%;
-}
+
+
+
 
 .toppost-flex{
     justify-content: center;
@@ -410,7 +429,7 @@ hr{
 
 .homepage-hollystories-wrapper{
     margin-bottom: 20px;
-    width: 80%;
+    width: 90%;
     display: grid;
     /* place-items: center; */
     justify-content: space-around;
