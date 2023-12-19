@@ -24,7 +24,6 @@ function Fitness() {
       );
       const response = res.data;
       setData(response);
-     
     } catch (err) {
       console.log(err, "errs");
     }
@@ -93,7 +92,7 @@ function Fitness() {
                       )
                       .map((item, index) => {
                         return (
-                          <>
+                          <div key={index}>
                             <Link to={`/article/${item.id}`}>
                               <img
                                 className="right-sec-big-avatar"
@@ -106,7 +105,7 @@ function Fitness() {
                                 {item.name}
                               </span>
                             </div>
-                          </>
+                          </div>
                         );
                       })
                   : "Loading..."}
@@ -152,7 +151,7 @@ function Fitness() {
           <Footer />
         </>
       ) : (
-        <div class="loader">Loading...</div>
+        <div className="loader">Loading...</div>
       )}
     </>
   );

@@ -23,7 +23,6 @@ function Gaming() {
       );
       const response = res.data;
       setData(response);
-      
     } catch (err) {
       console.log(err, "errs");
     }
@@ -91,7 +90,7 @@ function Gaming() {
                       )
                       .map((item, index) => {
                         return (
-                          <>
+                          <div key={index}>
                             <Link to={`/article/${item.id}`}>
                               <img
                                 className="right-sec-big-avatar"
@@ -104,7 +103,7 @@ function Gaming() {
                                 {item.name}
                               </span>
                             </div>
-                          </>
+                          </div>
                         );
                       })
                   : "Loading..."}
@@ -150,7 +149,7 @@ function Gaming() {
           <Footer />
         </>
       ) : (
-        <div class="loader">Loading...</div>
+        <div className="loader">Loading...</div>
       )}
     </>
   );

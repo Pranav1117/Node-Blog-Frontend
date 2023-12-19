@@ -7,20 +7,22 @@ nav {
     justify-content: center;
     align-items: center;
     background-color: #623733;
+
+
 }
 
-/* .nav .title{
-    font-size: 1.5rem;
-    margin: 1rem;
-    font-weight: bold;
-    text-decoration: none;
-    color: white;
-} */
+
 
 nav ul{
     display: flex;
+    /* transition: transform 2s ease;
+    transform: translateY(-200px); */
+    /* transition-delay: 1s; */
 }
 
+/* ul.open{
+    /* transform: translateY(0); 
+} */
 nav ul li{
     list-style: none;
 
@@ -38,6 +40,7 @@ nav ul li a{
 nav ul li a:not(.active):hover{
     background-color: #411b00;
 }
+
 nav .menu{
     /* background-color: black; */
     z-index: 20;
@@ -57,6 +60,8 @@ nav .menu span{
     border-radius: 0.2rem;
     display: none;
 }
+ 
+
 @media only screen and (min-width:250px) and (max-width:1080px){
     nav .menu{
         display: flex;

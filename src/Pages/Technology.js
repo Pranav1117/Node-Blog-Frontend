@@ -92,7 +92,7 @@ function Technology() {
                       )
                       .map((item, index) => {
                         return (
-                          <>
+                          <div key={index}>
                             <Link to={`/article/${item.id}`}>
                               <img
                                 className="right-sec-big-avatar"
@@ -105,7 +105,7 @@ function Technology() {
                                 {item.name}
                               </span>
                             </div>
-                          </>
+                          </div>
                         );
                       })
                   : "Loading..."}
@@ -151,7 +151,7 @@ function Technology() {
           <Footer />
         </>
       ) : (
-        <div class="loader">Loading...</div>
+        <div className="loader">Loading...</div>
       )}
     </>
   );

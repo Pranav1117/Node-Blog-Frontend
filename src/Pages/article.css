@@ -3,7 +3,7 @@
 }
 
 .App{
-    background-color: #EEE2DC;
+    background-color: #f3eadb;
     font-family: 'Karla', sans-serif;
     overflow: hidden;
 }
@@ -159,7 +159,7 @@ img:hover .img-text-onhover{
 }
 
 .article-main-para{
-    font-size: 20px;
+    font-size: clamp(15px,1.5vw,1.5rem);
     color: rgba(140, 24, 24, 0.568);
     width: 80%;
     margin-inline: auto;
@@ -298,7 +298,7 @@ img:hover .img-text-onhover{
     }
    
     .article-main-para{
-        font-size:18px;
+        /* font-size:18px; */
         /* width: 300px; */
         /* height: 369px; */
     }
@@ -323,7 +323,7 @@ img:hover .img-text-onhover{
     }
 
 .article-main-para{
-    font-size: 18px;
+    /* font-size: 18px; */
 }
 
 .genre-likes-container{
@@ -447,7 +447,7 @@ img:hover .img-text-onhover{
     }
 
 .article-main-para{
-    font-size: 18px;
+    /* font-size: 18px; */
 }
 
 .genre-likes-container{

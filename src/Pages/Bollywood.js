@@ -93,7 +93,7 @@ function Bollywood() {
                       )
                       .map((item, index) => {
                         return (
-                          <>
+                          <div key={index}>
                             <Link to={`/article/${item.id}`}>
                               <img
                                 className="right-sec-big-avatar"
@@ -106,7 +106,7 @@ function Bollywood() {
                                 {item.name}
                               </span>
                             </div>
-                          </>
+                          </div>
                         );
                       })
                   : "Loading..."}
@@ -154,7 +154,7 @@ function Bollywood() {
           <Footer />
         </>
       ) : (
-        <div class="loader">Loading...</div>
+        <div className="loader">Loading...</div>
       )}
     </>
   );

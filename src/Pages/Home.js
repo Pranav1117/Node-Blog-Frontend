@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setLoggedInStatus } from "../Features/Slice";
 import Footer from "../Components/Footer";
+import ad from "../Media/adverise.webp";
 function Home() {
   const [value] = useState("value");
 
@@ -21,7 +22,7 @@ function Home() {
   const fetchData = async () => {
     try {
       let res = await axios.get(
-        "https://node-project-backend.onrender.com/data",
+        "https://node-project-backend.onrender.com/data"
         // "http://localhost:8000/data"
       );
 
@@ -43,7 +44,7 @@ function Home() {
       "https://node-project-backend.onrender.com/checkloggedin"
       // "http://localhost:8000/checkloggedin"
     );
-   
+
     dispatch(setLoggedInStatus(res.data.isLoggedIn));
   };
 
@@ -51,8 +52,6 @@ function Home() {
     fetchData();
     checkLoggedIn();
   }, []);
-
-  
 
   return (
     <>
@@ -68,13 +67,13 @@ function Home() {
                   .filter((item) => item.name === "Resident evil")
                   .map((i, index) => {
                     return (
-                      <>
+                      <div key={index}>
                         <img
                           alt="logo"
                           className="homepage-main-big-image"
                           src={i.image}
                         />
-                      </>
+                      </div>
                     );
                   })
               ) : (
@@ -89,13 +88,13 @@ function Home() {
                     .filter((item) => item.name === "Top Gun :Maverick")
                     .map((i, index) => {
                       return (
-                        <>
+                        <div key={index}>
                           <img
                             alt="logo"
                             src={i.image}
                             className="homepage-small-images1"
                           />
-                        </>
+                        </div>
                       );
                     })
                 ) : (
@@ -108,13 +107,13 @@ function Home() {
                     .filter((item) => item.name === "Artificial Inteligence")
                     .map((i, index) => {
                       return (
-                        <>
+                        <div key={index}>
                           <img
                             alt="logo"
                             src={i.image}
                             className="homepage-small-images2"
                           />
-                        </>
+                        </div>
                       );
                     })
                 ) : (
@@ -210,7 +209,9 @@ function Home() {
                 <h2>loading</h2>
               )}
             </div>
-            <div className="homepage-advertise-container">Advertisement</div>
+            <div className="homepage-advertise-container">
+              <img src={ad} alt="advertise" />
+            </div>
           </div>
 
           <hr className="below-holly-hr" />
@@ -222,7 +223,7 @@ function Home() {
                   .filter((i) => i.category === "Gaming" && i.id === 2)
                   .map((item, index) => {
                     return (
-                      <>
+                      <div key={index}>
                         <Link to={`article/${item.id}`}>
                           <img
                             className="homepage-big-img-besidetoppost-img"
@@ -230,7 +231,7 @@ function Home() {
                             alt="logo"
                           />
                         </Link>
-                      </>
+                      </div>
                     );
                   })
               ) : (
@@ -245,7 +246,7 @@ function Home() {
                   .filter((i) => i.category === "Technology" && i.id === 19)
                   .map((item, index) => {
                     return (
-                      <div className="homepage-toppost-mainpost">
+                      <div className="homepage-toppost-mainpost" key={index}>
                         <Link to={`article/${item.id}`}>
                           <img
                             className="homepage-toppost-main-image"
@@ -262,7 +263,7 @@ function Home() {
                             <p className="toppost-desc">{item.desc}</p>
                           </Link>
                         </div>
-                        <hr style={{ marginTop: 15, width: "90%" }} />
+                        {/* <hr style={{ marginTop: 15, width: "90%" }} /> */}
                       </div>
                     );
                   })
@@ -270,13 +271,13 @@ function Home() {
                 <h2>loading</h2>
               )}
 
-              <div className="homepage-toppost-smallpost-container">
+              {/* <div className="homepage-toppost-smallpost-container">
                 {data ? (
                   data
                     .filter((i) => i.id === 17)
                     .map((item, index) => {
                       return (
-                        <div className="homepage-toppost-smallpost">
+                        <div className="homepage-toppost-smallpost" key={index}>
                           <Link to={`article/${item.id}`}>
                             <img
                               alt="logo"
@@ -299,7 +300,7 @@ function Home() {
                 ) : (
                   <h2>loading</h2>
                 )}
-              </div>
+              </div> */}
             </div>
           </div>
           <Footer />

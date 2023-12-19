@@ -77,7 +77,7 @@ const Article = () => {
     <>
       <div>
         {/* <Logo className="article-logo" /> */}
-        <HeaderCompo/>
+        <HeaderCompo />
         {status ? (
           <div>
             {data ? (
@@ -85,7 +85,7 @@ const Article = () => {
                 .filter((item) => item.id === path)
                 .map((i, index) => {
                   return (
-                    <>
+                    <div key={index}>
                       <div className="article-above-container" key={index}>
                         <h2 className="article-heading">{i.name}</h2>
 
@@ -177,7 +177,7 @@ const Article = () => {
                           </div>
                         </div>
                       </div>
-                    </>
+                    </div>
                   );
                 })
             ) : (
@@ -202,7 +202,7 @@ const Article = () => {
               .filter((item) => item.category === categor && item.id !== path)
               .map((i, index) => {
                 return (
-                  <>
+                  <div key={index}>
                     <div className="upper">
                       <div className="article-lower-wrapper">
                         <Link
@@ -226,7 +226,7 @@ const Article = () => {
                         </Link>
                       </div>
                     </div>
-                  </>
+                  </div>
                 );
               })
           ) : (

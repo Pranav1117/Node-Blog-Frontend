@@ -7,6 +7,13 @@
   
 }
 
+.homepage-advertise-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    box-shadow: none;
+
+}
 .homepage-main-big-image-container{
     display: flex;
     flex-direction: row;
@@ -182,9 +189,9 @@ margin-top: 10px;
     position: relative;
     bottom: 2rem;
 }
-.txt-adjust{
+/* .txt-adjust{
     width: 50%;
-}
+} */
 
 .homepage-big-img-besidetoppost{
     /* position: relative; */
